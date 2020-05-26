@@ -28,14 +28,12 @@ def about():
     return render_template('about.html')
 
 
-@app.route('/post')
-def post():
-    return render_template('post.html')
-
-
-@app.route('/contact')
-def contact():
-    return render_template('contact.html')
+# noinspection PyShadowingNames
+@app.route('/post/<int:post_id>')
+def post(post_id):
+    post = Blogpost.query.filter_by(id=post_id).one()
+    date_posted = post.date_posted.strftime('%B, %d, %Y')
+    return render_template('post.html', post=post, date_posted=date_posted)
 
 
 @app.route('/add')
@@ -43,6 +41,7 @@ def add():
     return render_template('add.html')
 
 
+# noinspection PyShadowingNames
 @app.route('/addpost', methods=['POST'])
 def addpost():
     title = request.form['title']
