@@ -45,6 +45,9 @@
                 <li class="nav-item">
                     <a class="nav-link" href="{{ url_for('about') }}">About</a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('add') }}">Add</a>
+                </li>
             </ul>
         </div>
     </div>
@@ -61,7 +64,7 @@
                     <h2 class="subheading">{{ post.subtitle }}</h2>
                     <span class="meta">Posted by
               {{ post.author }}
-              on {{ date_posted }}</span>
+              on {{ post.date_posted.strftime('%B, %d, %Y') }}</span>
                 </div>
             </div>
         </div>
