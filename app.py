@@ -5,6 +5,7 @@ from flask_sqlalchemy import SQLAlchemy
 
 app = Flask(__name__)
 
+# Place the path to your project directory
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:////home/william/Dev/blog/blog.db'
 db = SQLAlchemy(app)
 
